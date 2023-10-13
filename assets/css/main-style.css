@@ -1,0 +1,184 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "arial";
+    line-height: 1.2;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none !important;
+    color: inherit; 
+}
+.container{
+    max-width: 1024px;
+    margin: auto;
+    padding: 0 15px;
+}
+/* start header-sec */
+.header-sec{
+    background-color: brown;
+    color: #FFF;
+    text-align: center;
+    padding: 20px 0;
+}
+.header-sec h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+/* end header-sec */
+/* start app-sec */
+.app-sec{}
+.flex{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin: 50px 0;
+    column-gap: 25px;
+}
+.flex .hold-action{
+    width: 20%;
+}
+.flex .hold-action .btn{
+    border: 1px solid brown;
+    outline: none;
+    background-color: brown;
+    color: #FFF;
+    transition: .3s;
+    border-radius: 5px;
+    padding: 10px 20px;
+    min-width: 170px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.flex .hold-action .btn:not(:disabled):hover{
+    background-color: #FFF;
+    color: brown;
+}
+.flex .hold-action .btn:disabled{
+    opacity: .6;
+    cursor: not-allowed;
+}
+.flex .hold-action .btn.btn-finish{
+    margin-bottom: 0;
+}
+.flex .hold-game{
+    width: 60%;
+    overflow: hidden;
+    position: relative;
+}
+.flex .start-front{
+    position: absolute;
+    inset: 0;
+    background-color: rgba(165, 42, 42, 20%);
+    z-index: 3;
+}
+.flex .hold-game .grid{
+    perspective: 1000px;
+    border: 1px solid brown;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.flex .hold-game .grid.easy{grid-template-columns: repeat(4, 1fr);}
+.flex .hold-game .grid.medium{grid-template-columns: repeat(6, 1fr);}
+.flex .hold-game .grid.hard{grid-template-columns: repeat(8, 1fr);}
+.flex .hold-game .grid .box{
+    border: 1px solid brown;
+    padding: 10px;
+    min-height: 70px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.flex .hold-game .grid .box.selected{
+    transform: rotateY(180deg);
+}
+.flex .hold-game .grid .box .front{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(165, 42, 42, 10%);
+    font-size: 20px;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+.flex .hold-game .grid .box .hold-icon{
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.flex .hold-game .grid .box .hold-icon img{
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+}
+.hold-select{
+
+}
+.hold-select label{
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: brown;
+}
+.hold-select select{
+    border-color: brown !important;
+    padding: 5px 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    min-width: 170px;
+}
+.flex .hold-game .text{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    opacity: 0;
+    transition: .3s;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/winner.gif);
+    background-color: rgba(165, 42, 42, 10%);
+}
+.flex .hold-game .text.show{
+    opacity: 1;
+    z-index: 2;
+}
+@media (max-width: 768px) {
+    .flex{
+        align-items: center;
+        flex-direction: column-reverse;
+        row-gap: 30px;
+    }
+    .flex .hold-game,
+    .flex .hold-action{
+        width: 100%;
+        text-align: center;
+    }
+    .hold-select select{width: 100%;}
+    .flex .hold-game .grid.easy{grid-template-columns: repeat(2, 1fr);}
+    .flex .hold-game .grid.medium{grid-template-columns: repeat(4, 1fr);}
+    .flex .hold-game .grid.hard{grid-template-columns: repeat(4, 1fr);}
+}
+/* end app-sec */

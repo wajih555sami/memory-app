@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr">
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Memory Application</title>
+		<link rel="icon" href="favicon.png" type="image/png">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		
+        <!-- Main style -->
+        <link rel="stylesheet" href="assets/css/main-style.css">
+
+
+	</head>
+	<body class="body-site" >
+        <header class="header-sec">
+            <div class="container">
+                <h1>Memory Match Application</h1>
+            </div>
+        </header>
+        <main class="main">
+            <section class="app-sec">
+                <div class="container">
+                    <div class="flex">
+                        <div class="hold-game">
+                            <div class="start-front"></div>
+                            <div class="grid easy" id="all_boxes"></div>
+                            <div class="text" id="winner">
+                                <p>&#127882;&#127881; Winner &#127881;&#127882;</p>
+                            </div>
+                        </div>
+                        <div class="hold-action">
+                            <div class="hold-select">
+                                <label for="levels">Difficulty Levels</label>
+                                <select id="levels" name="levels" onchange="chooseLevels()">
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-start" type="button" id="start_game" >Start The Game</button>
+                            <button class="btn btn-finish" type="button" id="finish_game" onclick="resetGame()" disabled>Reset The Game</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+		
+		<script src="assets/js/main-script.js"></script> 
+
+	</body>
+</html>
